@@ -106,6 +106,20 @@ class RelayController:
         self.relay2_off()
         time.sleep(0.5)
 
+    def test_sequence(self):
+        """Test sequence for both relays."""
+        if not self.device or not self.device.is_opened():
+            self.open_device()
+
+        for _ in range(15):
+            self.relay1_on()
+            time.sleep(0.1)
+            self.relay1_off()
+            time.sleep(0.1)
+            self.relay2_on()
+            time.sleep(0.1)
+            self.relay2_off()
+            time.sleep(0.1)
 
 if __name__ == "__main__":
     try:
